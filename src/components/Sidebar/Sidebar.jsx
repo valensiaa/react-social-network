@@ -10,7 +10,7 @@ const SideBar = (props) => {
         <div className={c.header}>
           <h2>Friends</h2>
         </div>
-        <div className={c.users}>
+        <div className={c.users}> valya
           {friendsElements}
         </div>
       </div>
