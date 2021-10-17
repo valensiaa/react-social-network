@@ -1,0 +1,38 @@
+.app-wrapper {
+  display: grid;
+  margin: 0 auto;
+  width: 100%;;
+  grid-template-areas: 
+  'header'
+  'container';
+
+  grid-template-rows: 200px 1fr;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.app-wrapper-content {
+  grid-area: content;
+  background-color: rgb(58, 189, 145);
+}
+.container {
+  grid-area: container;
+  margin: 0 auto;
+  width: 1200px;
+
+  display: grid;
+  grid-template-areas: 
+  'nav content sidebar';
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 6fr 2fr;
+  grid-gap: 10px;
+
+}
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
