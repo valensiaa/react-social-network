@@ -4,6 +4,7 @@ import c from './Post.module.css'
 const Post = (props) => {
     return (
       <div className={c.item}>
+        <img alt='valya' src='./avatar.jpg'/>
         {props.message}
         <div>
           <span>{props.likesCount}</span>
