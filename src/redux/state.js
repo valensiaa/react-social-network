@@ -1,10 +1,12 @@
+import { reRenderEntireTree } from "../render"
 
   let state = {
       profilePage: {
         posts: [
             {id: 1, message: 'How are you?', likesCount: 15},
             {id: 2, message: 'Its my first props', likesCount: 20},
-          ]
+          ],
+          textChange: 'VAlya frontend developer'
       },
       dialogsPage: {
         messages: [
@@ -35,7 +37,12 @@
       likesCount: 0
     }
     state.profilePage.posts.push(newPost)
-    
+    reRenderEntireTree(state);
+  }
+  export let updateNewPostText  = (textChange) => {
+    state.profilePage.textChange = textChange;
+  
+    reRenderEntireTree(state);
   }
 
   export default state
