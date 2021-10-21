@@ -9,21 +9,15 @@ let postsElements = props.posts
 .map(v => <Post message={v.message} likesCount={v.likesCount}/>)
 
 let newPostElement = React.createRef();
-let addPost = () => {
-  let text = newPostElement.current.value 
- props.addPost(text)
- newPostElement.current.value = ''
+
+let addPost = () => { 
+ props.addPost()
 }
 let onTextChange = () => {
   let text = newPostElement.current.value 
   props.updateNewPostText(text)
-   console.log(text)
 }
-// let keyPressEvent =()=> {
-//   let text = newPostElement.current.value 
-//   console.log(text)
-//   props.addPost(text)
-// }
+
 
 return (
         <div className={c.mypostsBlock}>
@@ -38,7 +32,6 @@ return (
               <div>
                 <button onClick={addPost}>Add post</button>
               </div>
-
             </div>
             <div className = {c.posts}>
             {postsElements}   

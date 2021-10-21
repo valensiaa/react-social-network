@@ -24,11 +24,12 @@ const App = (props) =>  {
           
           <Sidebar state={state.friendsSidebar}/>
           <div className = 'app-wrapper-content'>
-            <Route path='/profile' render = {()=> <Profile 
+            <Route path='/profile' render = {()=> 
+            <Profile 
                     profilePage={props.state.profilePage} 
                     addPost = {props.addPost} 
                     updateNewPostText={props.updateNewPostText}/>
-                    }/>
+            }/>
             <Route path ='/dialogs' render = {() => <Dialogs state={state.dialogsPage}/>}/>
             <Route path='/news' render = {() => <News/>}/>
             <Route path='/music' render = {() => <Music/>}/>
