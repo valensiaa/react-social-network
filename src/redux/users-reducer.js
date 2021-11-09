@@ -3,12 +3,12 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 
 let initialState = {
-    users: [
-        // {id: 1, followed: true, name: 'Basya', status: 'I was best cat ever', location: {city: 'Kyiv', country: 'Catraine'}},
-        // {id: 2, followed: false, name: 'Andriy', status: 'I love cats', location: {city: 'Kyiv', country: 'China'}},
-        // {id: 3, followed: true, name: 'Marta', status: 'I am a blackest cat ever', location: {city: 'Kyiv', country: 'Ukraine'}}
+     users: [
+    //     {id: 1, photoURL: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80', followed: true, fullName: 'Basya', status: 'I was best cat ever', location: {city: 'Kyiv', country: 'Catraine'}},
+    //     {id: 2, photoURL: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=800', followed: false, fullName: 'Andriy', status: 'I love cats', location: {city: 'Kyiv', country: 'China'}},
+    //     {id: 3, photoURL: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80', followed: true, fullName: 'Marta', status: 'I am a blackest cat ever', location: {city: 'Kyiv', country: 'Ukraine'}}
 
-      ]
+       ]
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -46,6 +46,7 @@ const usersReducer = (state = initialState, action) => {
 
         default:
             return state
+}
 }
 
 export const followAC = (userId) => ({type: FOLLOW, userId})
