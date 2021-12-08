@@ -8,4 +8,18 @@
   height: 200px;
   width: 100%;
   margin: 0;
+  position: relative;
+}
+.loginBlock {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  z-index: 3;
+  color: aliceblue;
+}
+.loginBlock a:link,
+.loginBlock a:focus,
+.loginBlock a:hover,
+.loginBlock a:visited {
+  color: white
 }
