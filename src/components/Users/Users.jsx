@@ -11,25 +11,36 @@ const Users = (props) => {
     pages.push(i)
   }
     
-    return (<div className={styles.usersPage} >
-      <div className={styles.paginationBlock}>
-        {pages.map(p => <span onClick = {() => props.onPageChanged(p)} className = {props.currentPage === p ? styles.selectedPage : undefined} >{p}</span>)}
-      </div>
-      {
-        props.users.map(u =>
+    return (
+      <div className={styles.usersPage}>
+        <div className={styles.paginationBlock}>
+          {pages.map((p) => (
+            <span
+              key={p.id}
+              onClick={() => props.onPageChanged(p)}
+              className={props.currentPage === p ? styles.selectedPage : undefined }>{p}</span>
+          ))}
+        </div>
+        {props.users.map((u) => (
           <div className={styles.userBlock} key={u.id}>
             <div className={styles.photoBar}>
               <div>
-                <NavLink to={'/profile/'+ u.id} >
-                  <img alt='avatar' src={u.photos.small !== null ? u.photos.small : photoUser} />
+                <NavLink to={"/profile/" + u.id}>
+                  <img
+                    alt="avatar"
+                    src={u.photos.small !== null ? u.photos.small : photoUser}
+                  />
                 </NavLink>
               </div>
               <div>
-                {u.followed
-                  ? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-                  : <button onClick={() => { props.follow(u.id) }}>Follow</button>
-                }
-
+                {u.followed 
+                ? ( <button disabled = {props.toggleIsFollowingProgress.some(id => id === u.id)}
+                          onClick={() => {props.unFollow(u.id)}}>Unfollow
+                  </button>
+                ) : (
+                  <button disabled = {props.toggleIsFollowingProgress.some(id => id === u.id)}
+                          onClick={() => {props.follow(u.id)}}>Follow
+                  </button>)}
               </div>
             </div>
             <div className={styles.userInfo}>
@@ -38,14 +49,14 @@ const Users = (props) => {
                 <p>{u.status}</p>
               </div>
               <div className={styles.location}>
-                <span>{'u.location.country'}</span>
-                <span>{'u.location.city'}</span>
+                <span>{"u.location.country"}</span>
+                <span>{"u.location.city"}</span>
               </div>
             </div>
           </div>
-        )
-      }
-    </div>)
+        ))}
+      </div>
+    );
   }
 
 
