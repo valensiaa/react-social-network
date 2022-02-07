@@ -11,9 +11,19 @@ import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/Login/LoginPage';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import {initializeApp} from './redux/app-reducer'
+import Preloader from './components/common/Preloader/Preloader';
 
 
-const App = (props) =>  {
+const App = ({initializeApp, initialized}) =>  {
+
+  useEffect(() => {
+    initializeApp()
+  }, [initializeApp])
+
+  if(!initialized) return <Preloader/>
 
   return (
     <BrowserRouter>
@@ -39,4 +49,8 @@ const App = (props) =>  {
   );
 }
 
-export default App;
+const mapStateToProps =(state) => ({
+  initialized: state.app.initialized
+})
+
+export default connect(mapStateToProps, {initializeApp})(App);

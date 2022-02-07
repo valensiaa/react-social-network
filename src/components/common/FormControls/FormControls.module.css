@@ -4,3 +4,7 @@
 .formControl.error span {
     color: #890808;
 }
+.submitError {
+    font-size: 12px;
+    color: #890808;
+}
